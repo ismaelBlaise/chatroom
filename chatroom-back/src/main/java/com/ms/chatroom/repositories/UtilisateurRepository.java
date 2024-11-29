@@ -11,4 +11,5 @@ import com.ms.chatroom.models.Utilisateur;
 @Repository
 public interface UtilisateurRepository extends JpaRepository<Utilisateur,Long> {
     public Optional<Utilisateur> findByEmail(String email);
+    Optional<Utilisateur> findByPseudo(String pseudo);
 }
