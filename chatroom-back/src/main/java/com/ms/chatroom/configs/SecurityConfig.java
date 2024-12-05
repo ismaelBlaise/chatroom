@@ -17,9 +17,9 @@ public class SecurityConfig {
     @SuppressWarnings({ "removal" })
     public void configure(HttpSecurity http) throws Exception {  
         http
-            .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)   
+            .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class).formLogin(null) 
             .authorizeHttpRequests()
-                .requestMatchers("/login", "/register").permitAll() 
+                .requestMatchers("api/auth/login", "api/auth/register").permitAll() 
                 .anyRequest().authenticated();  
     }
 
